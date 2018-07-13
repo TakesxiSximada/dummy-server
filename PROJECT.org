@@ -1,0 +1,10 @@
+* Docs
+
+** [[https://github.com/TakesxiSximada/dummy-server][Repository]]
+
+
+* Arcitecture
+
+[Client] <-> [Proxy] <-> [Dummy Server]
+[Browser] <-> [MITMProxy] <-> [DummyServer]
+[Curl] <-> [Micro service] <-> [MITMProxy] <-> [DummyServer]

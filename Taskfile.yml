@@ -1,0 +1,18 @@
+version: '2'
+
+tasks:
+  curl:
+    sources:
+      - Taskfile.yml
+    cmds:
+      - http_proxy=127.0.0.1:8080 curl --include http://example.com
+
+  build:
+    cmds:
+      - mkdir -p .var/dummyserver
+      - swagger-codegen generate -l python-flask -i api.yml -o .var/dummyserver
+      - pip install -r .var/dummyserver/requirements.txt
+
+  serve:
+    cmds:
+      - PYTHONPATH=.var/dummyserver python server.py
